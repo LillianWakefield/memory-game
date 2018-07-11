@@ -26,8 +26,8 @@ function shuffle(a) {
 
 
 class App extends Component {
-  constructor (){
-    super();
+  constructor (props){
+    super(props);
     this.state = {
       deck: generateDeck(),
       pickedCards: [],
@@ -53,10 +53,14 @@ class App extends Component {
 if (newPickedCards.length === 2){
   var card1Index = newPickedCards[0];
   var card2Index = newPickedCards[1];
+  var card1 = newDeck[card1Index]
+  var card2 = newDeck[card2Index]
 
-  if(newDeck[card1Index].Symbol !== newDeck[card2Index].Symbol){
-
-    setTimeout(this.unflipCards.bind(this, card1Index, card2Index), 1000)
+  if(card1.Symbol !== card2.Symbol){
+    setTimeout(()=>{
+      this.unflipCards(card1Index, card2Index);
+    },1000 );
+    
   }
   newPickedCards = [];
 }
@@ -66,24 +70,18 @@ if (newPickedCards.length === 2){
     pickedCards: newPickedCards})
   }
 
-  unflipCards (card1Index, card2Index){
-var card1 = {...this.state.deck[card1Index]};
-var card2 = {...this.state.deck[card2Index]};
-card1.isFlipped = false;
-card2.isFlipped = false;
+unflipCards (card1Index, card2Index){
+  let newDeck = this.state.deck.map(card =>{
+    return {... card}
+  });
+  
+newDeck[card1Index].isFlipped = false;
+newDeck[card2Index].isFlipped = false;
+this.setState({
+  deck:newDeck
+});
+}
 
-var newDeck = this.state.deck.map((card, index) =>{
-  if(card1 === index) {
-   return card1
-  }
-  if (card2 === index) {
-    return card2
-  }
-  return card
-})
-
-this.setState({deck: newDeck})
-  }
   render() {
     var cardsJSX = this.state.deck.map((card, index) =>{
       return < MemoryCard symbol={card.Symbol} isFlipped={card.isFlipped} key={index} pickCard={this.pickCard.bind(this, index)}/>
