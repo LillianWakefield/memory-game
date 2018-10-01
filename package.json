@@ -1,5 +1,5 @@
 {
-  "homepage" : "https://lillianwakefield.github.io/memory-game/",
+  "homepage": "https://lillianwakefield.github.io/memory-game/",
   "name": "memory-game",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "memory-game -d build"
+    "deploy": "gh-pages -d build"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
