@@ -1,17 +1,22 @@
+.app{
+    background-color: #FFFFF3;
+    height: 100vh
+}
 .navbar {
-    background-color: #222;
+    color: #FFFFF3;
+    background-color: #8B94A3;
     text-align: center;
     padding: 20px;
 }
 
 .navbar a {
-    color: white;
+    color: #FFFFF3;
     margin: 5px;
 }
 
 .navbar a:hover {
-    color: orange;
+    color: #89D6D1;
 }
  .navbar a:active {
-     color: red;
+     color: #89D6D1;
  }

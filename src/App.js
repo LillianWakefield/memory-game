@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
 import './App.css';
 import MemoryGame from './MemoryGame.js';
-import Jobs from './Jobs.js';
+import About from './About.js';
 
 
 class App extends Component {
@@ -11,14 +11,15 @@ class App extends Component {
     }
     render (){
         return (
-            <div>
+            <div className='app'>
             <div className='navbar'>
-                <Link to='/memory'>Memory Game</Link>
-                <Link to='/jobs'>Job Search</Link>
+                <Link to='/memory'>Home</Link>
+                <Link to='/about'>About</Link>
             </div>
             <Switch>
+            <Route path ='/memory-game' component={MemoryGame}/>
             <Route path ='/memory' component={MemoryGame}/>
-            <Route path ='/jobs' component={Jobs}/>
+            <Route path ='/about' component={About}/>
             </Switch>
             </div>
         )
