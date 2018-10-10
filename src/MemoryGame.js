@@ -72,7 +72,7 @@ if (newPickedCards.length === 2){
 
 unflipCards (card1Index, card2Index){
   let newDeck = this.state.deck.map(card =>{
-    return {... card}
+    return {...card}
   });
   
 newDeck[card1Index].isFlipped = false;
