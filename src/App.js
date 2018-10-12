@@ -11,7 +11,8 @@ class App extends Component {
         return (
             <div className='app'>
             <Switch>
-            <Route path ='/memory-game'component={Start}/>
+            <Route path ='/' exact ={true} component={Start}/>
+            <Route path ='/memory-game' component={Start}/>
             <Route path ='/memory' component={MemoryGame}/>
             </Switch>
             </div>

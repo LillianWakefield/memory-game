@@ -15,7 +15,7 @@ class Start extends Component {
     render() {
         return (
             <div className="App">
-            <div className="Header">
+            <div className="startHeader">
                 <h1>Memory Game</h1>
                 <Link to={'/memory'}><button>Start!</button></Link>
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MemoryCard.css';
+import backOfCard from './img/Back-of-card.svg'
 
 class MemoryCard extends Component {
     constructor(props) {
@@ -17,10 +18,11 @@ class MemoryCard extends Component {
         <div className="memoryCard" onClick ={this.props.pickCard}>
     <div className={memoryCardInnerClass}>
         <div className="memoryCardBack">
-            <img className="IMG" src ="https://www.digitalcrafts.com/img/DigitalCrafts-Logo-Wrench.png" alt="card"></img>
+            <img src={backOfCard} alt="card"></img>
         </div>
         <div className="memoryCardFront">
-            {this.props.symbol}
+        {this.props.symbol}
+            
         </div>
     </div>
 </div>

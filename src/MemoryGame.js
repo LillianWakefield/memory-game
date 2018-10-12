@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
 import './MemoryGame.css';
 import MemoryCard from './MemoryCard.js';
+import skullSVG from './img/skull.svg';
+import webSVG from './img/web.svg';
+import brewSVG from './img/brew.svg';
+import candycornSVG from './img/candycorn.svg';
+import ghostSVG from './img/ghost.svg';
+import hatSVG from './img/hat.svg';
+import orbSVG from './img/orb.svg';
+import pumpkinSVG from './img/pumpkin.svg';
+import spiderSVG from './img/spider.svg';
 
 function generateDeck() {
-  var symbols = ["∆", "ß", "£", "§", "•", "$", "+", "ø"];
+  var skull = <img className="Symbol" src ={skullSVG} alt="skull"></img>;
+  var web = <img className="Symbol" src ={webSVG} alt="web"></img>;
+  var brew = <img className="Symbol" src ={brewSVG} alt="brew"></img>;
+  var candycorn = <img className="Symbol" src ={candycornSVG} alt="candycorn"></img>;
+  var ghost = <img className="Symbol" src ={ghostSVG} alt="ghost"></img>;
+  var hat = <img className="Symbol" src ={hatSVG} alt="hat"></img>;
+  var orb = <img className="Symbol" src ={orbSVG} alt="orb"></img>;
+  var pumpkin = <img className="Symbol" src ={pumpkinSVG} alt="pumpkin"></img>;
+  var spider = <img className="Symbol" src ={spiderSVG} alt="spider"></img>;
+  var symbols = [skull, web, brew, candycorn, ghost, hat, orb, pumpkin, spider];
   var deck = [];
-  for(var i = 0; i< 16; i++) {
+
+  for(var i = 0; i< 18; i++) {
     deck.push({
       isFlipped: false,
-      Symbol: symbols[i%8],
+      Symbol: symbols[i%9],
      })
 
   }
@@ -90,20 +109,16 @@ this.setState({
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Memory Game</h1>
-          <h3>Match cards to win</h3>
+          <h1 className="App-title">Spook-takular Memory Match</h1>
         </header>
         <div>
-        {cardsJSX.slice(0,4)}
+        {cardsJSX.slice(0,6)}
         </div>
         <div>
-        {cardsJSX.slice(4,8)}
+        {cardsJSX.slice(6,12)}
         </div>
         <div>
-        {cardsJSX.slice(8,12)}
-        </div>
-        <div>
-        {cardsJSX.slice(12,16)}
+        {cardsJSX.slice(12,18)}
         </div>
       </div>
     );
