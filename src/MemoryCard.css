@@ -1,9 +1,9 @@
 
 .memoryCard {
 display: inline-block;
-width: 100px;
-height: 125px;
-margin: 5px;
+width: 150px;
+height: 200px;
+margin: 1px;
 cursor: pointer;
 position: relative;
 perspective: 800px;

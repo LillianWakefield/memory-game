@@ -111,14 +111,16 @@ this.setState({
         <header className="App-header">
           <h1 className="App-title">Spook-takular Memory Match</h1>
         </header>
-        <div>
-        {cardsJSX.slice(0,6)}
+        <div className="Play-area">
+          <div className="Card-row">
+          {cardsJSX.slice(0,6)}
+          </div>
+          <div className="Card-row">
+          {cardsJSX.slice(6,12)}
+          </div>
+          <div className="Card-row">
+          {cardsJSX.slice(12,18)}
         </div>
-        <div>
-        {cardsJSX.slice(6,12)}
-        </div>
-        <div>
-        {cardsJSX.slice(12,18)}
         </div>
       </div>
     );

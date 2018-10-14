@@ -11,12 +11,22 @@
 
 .App-title {
   font-size: 50px;
+  font-family: 'Londrina Solid', cursive;
 }
 
 .App-intro {
   font-size: large;
 }
+
+.Play-area {
+
+}
+
+.Card-row {
+
+}
+
 .Symbol {
-  width: 50px;
-  padding-top: 20px;
+  width: 66px;
+  padding-top: 45px;
 }
