@@ -25,9 +25,10 @@ perspective: 800px;
 }
 .memoryCardFront{
    font-size: 30px;
-   padding-top: 20px;
+   padding-top: 20%;
    transform: rotateY(180deg);
-   background: url(./img/Face-of-card.svg)
+   background: url(./img/Face-of-card.svg);
+   background-repeat: no-repeat;   
 }
 
 .memoryCardInner.flipped {

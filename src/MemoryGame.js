@@ -109,19 +109,30 @@ this.setState({
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Spook-takular Memory Match</h1>
+          <h1 className="App-title">Spook-takular Memory Match!</h1>
         </header>
-        <div className="Play-area">
-          <div className="Card-row">
-          {cardsJSX.slice(0,6)}
+          <div className="Play-area">
+            <div className="Card-area">
+              <div className="Card-row">
+              {cardsJSX.slice(0,6)}
+              </div>
+              <div className="Card-row">
+              {cardsJSX.slice(6,12)}
+              </div>
+              <div className="Card-row">
+              {cardsJSX.slice(12,18)}
+              </div>
+            </div>
+            <div className="Score-sidebar">
+              <div className="Score-area"></div>
+                  <div className="Timer"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
+                  <div className="Timer-text">542 </div>
+                  </div> 
+                  <div className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
+                  <div className="Best-time">50s </div>
+                  </div>
+            </div>
           </div>
-          <div className="Card-row">
-          {cardsJSX.slice(6,12)}
-          </div>
-          <div className="Card-row">
-          {cardsJSX.slice(12,18)}
-        </div>
-        </div>
       </div>
     );
   }

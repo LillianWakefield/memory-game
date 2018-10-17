@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -19,14 +21,125 @@
 }
 
 .Play-area {
+  display: flex;
+  max-width: 100%;
+  margin-top: 30px;
+  padding-left: 80px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
 
+.Card-area {
+  display: flex;
+  width: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
 }
 
 .Card-row {
-
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  align-items: flex-start;
 }
 
 .Symbol {
-  width: 66px;
-  padding-top: 45px;
+  width: 50%;
+  padding-top: 20%;
 }
+
+.Score-sidebar {
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 20px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+
+.Score-area {
+  margin-top: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+
+.Timer {
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Timer-icon {
+  width: 30px;
+  margin: -3px;
+  margin-right: 5px;
+}
+
+.Timer-text {
+  margin-left: 10px;
+}
+
+.Personal-best {
+  display: flex;
+  margin-top: 5px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Personal-best-icon {
+  width: 26px;
+  margin-right: 5px;
+}
+
+.Best-time {
+  margin-left: 10px;
+  line-height: 18px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  .Card-area {
+    width: 80%;
+  }
+} 
