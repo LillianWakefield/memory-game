@@ -1,8 +1,8 @@
 
 .memoryCard {
 display: inline-block;
-width: 150px;
-height: 200px;
+width: 100%;
+height: 150px;
 margin: 1px;
 cursor: pointer;
 position: relative;
