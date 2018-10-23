@@ -14,6 +14,7 @@ import orbSVG from './img/orb.svg';
 import pumpkinSVG from './img/pumpkin.svg';
 import spiderSVG from './img/spider.svg';
 
+
 function generateDeck() {
   var skull = <img className="Symbol" src ={skullSVG} alt="skull"></img>;
   var web = <img className="Symbol" src ={webSVG} alt="web"></img>;
@@ -55,24 +56,24 @@ class MemoryGame extends Component {
       pickedCards: [],
       isOn: false,
     }
+
   }
 
-
-  
   pickCard(cardIndex){
     var cardToFlip = {...this.state.deck[cardIndex]}
   if(this.state.deck[cardIndex].isFlipped === true){
+    console.log(this.state.isOn)
     return
   }
-  else if((this.state.isOn === false)){
+  else if(this.state.isOn === false){
+    cardToFlip.isFlipped = true;
     this.setState({isOn: true});
-  console.log('timer will start')
   console.log(this.state.isOn)
-  cardToFlip.isFlipped = true;
   }
   else
   cardToFlip.isFlipped = true;
-  
+  console.log(this.state.isOn)
+
   var newPickedCards = this.state.pickedCards.concat(cardIndex);
   var newDeck = this.state.deck.map((card,index)=>{
     if(cardIndex === index) {
@@ -139,7 +140,7 @@ this.setState({
             </Column>
             <Column justifyContent='center' alignItems='start' className="Score-sidebar">
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
-                  <div className="Timer-text"><Timer/></div>
+                  <div className="Timer-text"><Timer isOn={this.state.isOn}/></div>
                   </Row> 
                   <Row alignItems='center' className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
                   <div className="Best-time">50s </div>

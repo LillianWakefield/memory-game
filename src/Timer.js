@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Countdown from 'react-countdown-now';
-import MemoryGame from './MemoryGame.js'
 
 const GameOver = () => <span>Time's Up!</span>;
 
@@ -15,16 +14,8 @@ const renderer = ({minutes, seconds, completed }) => {
   };
 
 class Timer extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      isOn: false   
-}
-this.startTimer = this.startTimer.bind(this)
-this.resetTimer = this.resetTimer.bind(this)
-  }
 
- startTimer(){
+/* startTimer(){
    if(this.state.isOn === false){
   this.setState({isOn: true })
  console.log(this.state.isOn)}
@@ -33,22 +24,16 @@ this.resetTimer = this.resetTimer.bind(this)
  resetTimer(){
   this.setState({isOn: false})
   
-}
+}*/
     render(){
       let timerDisplay;
-      if(this.state.isOn === true){
-        timerDisplay = <Countdown date={Date.now() + 60000} renderer={renderer}/>;
+      if(this.props.isOn === false){
+        timerDisplay = <div>01:00</div>;
       }
       else 
-      {
-        timerDisplay = <div>01:00 </div>;
-      }
+      timerDisplay = <Countdown date={Date.now() + 60000} renderer={renderer}/>;
         return(
-       <div>
-         {timerDisplay}
- <button onClick={this.startTimer}>start</button>
- <button onClick={this.resetTimer}>Reset</button>
- </div> 
+       <div>{timerDisplay}</div> 
      )}
 
     }
