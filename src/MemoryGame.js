@@ -53,6 +53,7 @@ class MemoryGame extends Component {
     this.state = {
       deck: generateDeck(),
       pickedCards: [],
+      isOn: false,
     }
   }
 
@@ -63,8 +64,13 @@ class MemoryGame extends Component {
   if(this.state.deck[cardIndex].isFlipped === true){
     return
   }
-  else
+  else if((this.state.isOn === false)){
+    this.setState({isOn: true});
   console.log('timer will start')
+  console.log(this.state.isOn)
+  cardToFlip.isFlipped = true;
+  }
+  else
   cardToFlip.isFlipped = true;
   
   var newPickedCards = this.state.pickedCards.concat(cardIndex);
