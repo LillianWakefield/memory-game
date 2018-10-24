@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Row, Column} from 'simple-flexbox';
 import './MemoryGame.css';
 import MemoryCard from './MemoryCard.js';
-import Timer from './Timer.js';
+import TimerHOC from './Timer.js';
 
 import skullSVG from './img/skull.svg';
 import webSVG from './img/web.svg';
@@ -13,7 +13,6 @@ import hatSVG from './img/hat.svg';
 import orbSVG from './img/orb.svg';
 import pumpkinSVG from './img/pumpkin.svg';
 import spiderSVG from './img/spider.svg';
-
 
 function generateDeck() {
   var skull = <img className="Symbol" src ={skullSVG} alt="skull"></img>;
@@ -67,8 +66,11 @@ class MemoryGame extends Component {
   }
   else if(this.state.isOn === false){
     cardToFlip.isFlipped = true;
-    this.setState({isOn: true});
-  console.log(this.state.isOn)
+    this.setState((state) => {
+      return {isOn: true}
+    });
+    
+
   }
   else
   cardToFlip.isFlipped = true;
@@ -140,7 +142,7 @@ this.setState({
             </Column>
             <Column justifyContent='center' alignItems='start' className="Score-sidebar">
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
-                  <div className="Timer-text"><Timer isOn={this.state.isOn}/></div>
+                  <div className="Timer-text"><TimerHOC isOn={this.state.isOn}/></div>
                   </Row> 
                   <Row alignItems='center' className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
                   <div className="Best-time">50s </div>

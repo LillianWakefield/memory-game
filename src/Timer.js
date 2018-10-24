@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
-import Countdown from 'react-countdown-now';
+import Timer from 'react-compound-timer';
 
-const GameOver = () => <span>Time's Up!</span>;
+const withTimer = timerProps => WrappedComponent => wrappedComponentProps => (
+  <Timer {...timerProps}>
+    {timerRenderProps =>
+      <WrappedComponent {...wrappedComponentProps} timer={timerRenderProps} />}
+  </Timer>
+);
 
-// Renderer callback with condition
-const renderer = ({minutes, seconds, completed }) => {
-  if (completed) {
-    // Render a completed state
-    return <GameOver />;
-  } else
-    // Render a countdown
-    return <span>{minutes}:{seconds}</span>;
-  };
+class ClockUpDown extends React.Component {
+    componentDidUpdate(){
+        const {start, stop, reset} = this.props.timer;
 
-class Timer extends Component {
-
-/* startTimer(){
-   if(this.state.isOn === false){
-  this.setState({isOn: true })
- console.log(this.state.isOn)}
+        if(this.props.isOn === true){
+            start();
+            
+        }
+    }
+    render() {
+        return (
+            <div>
+            <Timer.Minutes />:<Timer.Seconds />
+            </div>
+        );
+    }
 }
 
- resetTimer(){
-  this.setState({isOn: false})
-  
-}*/
-    render(){
-      let timerDisplay;
-      if(this.props.isOn === false){
-        timerDisplay = <div>01:00</div>;
-      }
-      else 
-      timerDisplay = <Countdown date={Date.now() + 60000} renderer={renderer}/>;
-        return(
-       <div>{timerDisplay}</div> 
-     )}
-
-    }
-    
+const TimerHOC = withTimer({
+    direction: 'backward',
+    initialTime: 60000,
+    startImmediately: false,
+})(ClockUpDown);
 
 
-export default Timer;
+export default TimerHOC;
