@@ -96,6 +96,15 @@ if (newPickedCards.length === 2){
     },1000 );
     
   }
+  else if(card1.Symbol === card2.Symbol){
+  var faceUpCards = [];
+    faceUpCards.push(card1);//add card 1 to face up card array
+    faceUpCards.push(card2);
+    console.log(faceUpCards)
+    if (faceUpCards.length === 18){
+      
+    }
+  }
   newPickedCards = [];
 }
 
