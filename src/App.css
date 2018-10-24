@@ -2,21 +2,3 @@
     background-color: #FFF;
     height: 100vh
 }
-.navbar {
-    color: #FFFFF3;
-    background-color: #8B94A3;
-    text-align: center;
-    padding: 20px;
-}
-
-.navbar a {
-    color: #FFFFF3;
-    margin: 5px;
-}
-
-.navbar a:hover {
-    color: #89D6D1;
-}
- .navbar a:active {
-     color: #89D6D1;
- }
