@@ -54,6 +54,7 @@ class MemoryGame extends Component {
       deck: generateDeck(),
       pickedCards: [],
       isOn: false,
+      stopTimer: false,
     }
 
   }
@@ -61,7 +62,6 @@ class MemoryGame extends Component {
   pickCard(cardIndex){
     var cardToFlip = {...this.state.deck[cardIndex]}
   if(this.state.deck[cardIndex].isFlipped === true){
-    console.log(this.state.isOn)
     return
   }
   else if(this.state.isOn === false){
@@ -74,7 +74,6 @@ class MemoryGame extends Component {
   }
   else
   cardToFlip.isFlipped = true;
-  console.log(this.state.isOn)
 
   var newPickedCards = this.state.pickedCards.concat(cardIndex);
   var newDeck = this.state.deck.map((card,index)=>{
@@ -102,6 +101,9 @@ if (newPickedCards.length === 2){
     faceUpCards.push(card2);
     console.log(faceUpCards)
     if (faceUpCards.length === 18){
+      this.setState((state) => {
+        return {stopTimer: true}
+      });
       
     }
   }
@@ -151,7 +153,7 @@ this.setState({
             </Column>
             <Column justifyContent='center' alignItems='start' className="Score-sidebar">
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
-                  <div className="Timer-text"><TimerHOC isOn={this.state.isOn}/></div>
+                  <div className="Timer-text"><TimerHOC isOn={this.state.isOn} stopTimer={this.state.stopTimer}/></div>
                   </Row> 
                   <Row alignItems='center' className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
                   <div className="Best-time">50s </div>

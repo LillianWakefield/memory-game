@@ -11,10 +11,11 @@ const withTimer = timerProps => WrappedComponent => wrappedComponentProps => (
 class ClockUpDown extends React.Component {
     componentDidUpdate(){
         const {start, stop, reset} = this.props.timer;
-
         if(this.props.isOn === true){
-            start();
-            
+            start();  
+        }
+        if(this.props.stopTimer === true){
+            stop();  
         }
     }
     render() {
