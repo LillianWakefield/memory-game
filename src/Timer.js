@@ -29,7 +29,7 @@ class ClockUpDown extends React.Component {
 
 const TimerHOC = withTimer({
     direction: 'backward',
-    initialTime: 60000,
+    initialTime: 120000,
     startImmediately: false,
 })(ClockUpDown);
 

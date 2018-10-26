@@ -53,6 +53,7 @@ class MemoryGame extends Component {
     this.state = {
       deck: generateDeck(),
       pickedCards: [],
+      flippedCards: 0,
       isOn: false,
       stopTimer: false,
     }
@@ -60,17 +61,17 @@ class MemoryGame extends Component {
   }
 
   pickCard(cardIndex){
+    console.log(this.state.flippedCards)
     var cardToFlip = {...this.state.deck[cardIndex]}
   if(this.state.deck[cardIndex].isFlipped === true){
     return
   }
+  //triggers timer to start once a card is picked
   else if(this.state.isOn === false){
     cardToFlip.isFlipped = true;
     this.setState((state) => {
       return {isOn: true}
     });
-    
-
   }
   else
   cardToFlip.isFlipped = true;
@@ -92,21 +93,22 @@ if (newPickedCards.length === 2){
   if(card1.Symbol !== card2.Symbol){
     setTimeout(()=>{
       this.unflipCards(card1Index, card2Index);
-    },1000 );
-    
+    },1000 ); 
   }
+//triggers timmer stop once all cards have been turned
   else if(card1.Symbol === card2.Symbol){
-  var faceUpCards = [];
-    faceUpCards.push(card1);//add card 1 to face up card array
-    faceUpCards.push(card2);
-    console.log(faceUpCards)
-    if (faceUpCards.length === 18){
-      this.setState((state) => {
-        return {stopTimer: true}
-      });
-      
+    console.log(this.state.flippedCards);
+    this.setState((state) => {
+      return {flippedCards: state.flippedCards + 2}
+    });
+
+      if (this.state.flippedCards=== 16){
+        console.log(this.state.flippedCards);
+        this.setState((state) => {
+          return {stopTimer: true}
+        });
+      }
     }
-  }
   newPickedCards = [];
 }
 
