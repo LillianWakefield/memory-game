@@ -61,7 +61,6 @@ class MemoryGame extends Component {
   }
 
   pickCard(cardIndex){
-    console.log(this.state.flippedCards)
     var cardToFlip = {...this.state.deck[cardIndex]}
   if(this.state.deck[cardIndex].isFlipped === true){
     return
@@ -95,15 +94,12 @@ if (newPickedCards.length === 2){
       this.unflipCards(card1Index, card2Index);
     },1000 ); 
   }
-//triggers timmer stop once all cards have been turned
+//triggers timer to stop once all cards have been turned
   else if(card1.Symbol === card2.Symbol){
-    console.log(this.state.flippedCards);
     this.setState((state) => {
       return {flippedCards: state.flippedCards + 2}
     });
-
       if (this.state.flippedCards=== 16){
-        console.log(this.state.flippedCards);
         this.setState((state) => {
           return {stopTimer: true}
         });
