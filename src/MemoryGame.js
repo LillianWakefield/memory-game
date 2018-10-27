@@ -60,7 +60,7 @@ class MemoryGame extends Component {
     }
 
   }
-
+//callback that receives updated state from timer once time is zero
   timerStopped = (timeZero)=>{
     console.log(this.state.timeZero)
     this.setState((state) => {
@@ -73,7 +73,7 @@ class MemoryGame extends Component {
   if(this.state.deck[cardIndex].isFlipped === true){
     return
   }
-  //stops game once timer runs out
+  //stops game when time is zero
   else if(this.state.gameOver === true){
     return
   }
