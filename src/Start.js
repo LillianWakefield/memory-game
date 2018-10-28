@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
-import MemoryGame from './MemoryGame.js';
+import {Link} from 'react-router-dom';
 import './Start.css'
 //import axios from 'axios'
 

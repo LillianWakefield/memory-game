@@ -56,13 +56,12 @@ class MemoryGame extends Component {
       flippedCards: 0,
       startTimer: false,
       stopTimer: false,
-      gameOver: false, 
+      gameOver: false,
     }
 
   }
 //callback that receives updated state from timer once time is zero
   timerStopped = (timeZero)=>{
-    console.log(this.state.timeZero)
     this.setState((state) => {
       return {gameOver: timeZero}
     });
@@ -107,17 +106,17 @@ if (newPickedCards.length === 2){
     },1000 ); 
   }
 //triggers timer to stop once all cards have been turned
-  else if(card1.Symbol === card2.Symbol){
-    this.setState((state) => {
-      return {flippedCards: state.flippedCards + 1}
-    });
-      if (this.state.flippedCards=== 8){
-        this.setState((state) => {
-          return {stopTimer: true}
-        });
-      }
+else if(card1.Symbol === card2.Symbol){
+  this.setState((state) => {
+    return {flippedCards: state.flippedCards + 1}
+  });
+    if (this.state.flippedCards=== 7){
+      this.setState((state) => {
+        return {stopTimer: true}
+      });
     }
-  newPickedCards = [];
+  }
+newPickedCards = [];
 }
 
   this.setState({
@@ -165,9 +164,6 @@ this.setState({
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
                   <div className="Timer-text"><TimerHOC timerStopped={this.timerStopped} startTimer={this.state.startTimer} stopTimer={this.state.stopTimer}/></div>
                   </Row> 
-                  <Row alignItems='center' className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
-                  <div className="Best-time">50s </div>
-                  </Row>
             </Column>
           </Row>
       </div>
