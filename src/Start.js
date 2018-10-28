@@ -17,7 +17,7 @@ class Start extends Component {
             <div className="App">
             <div className="startHeader">
                 <h1>Memory Game</h1>
-                <Link to={'/memory'}><button>Start!</button></Link>
+                <Link to={'/memory-game/memory'}><button>Start!</button></Link>
             </div>
             </div>
         )
