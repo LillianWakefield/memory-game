@@ -109,9 +109,9 @@ if (newPickedCards.length === 2){
 //triggers timer to stop once all cards have been turned
   else if(card1.Symbol === card2.Symbol){
     this.setState((state) => {
-      return {flippedCards: state.flippedCards + 2}
+      return {flippedCards: state.flippedCards + 1}
     });
-      if (this.state.flippedCards=== 16){
+      if (this.state.flippedCards=== 8){
         this.setState((state) => {
           return {stopTimer: true}
         });

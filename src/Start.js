@@ -19,9 +19,6 @@ class Start extends Component {
                 <h1>Memory Game</h1>
                 <Link to={'/memory'}><button>Start!</button></Link>
             </div>
-            <Switch>
-            <Route path ='/memory' component={MemoryGame}/>
-            </Switch>
             </div>
         )
     }
