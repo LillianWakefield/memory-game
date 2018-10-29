@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
-import MemoryGame from './MemoryGame.js';
+import {Link} from 'react-router-dom';
 import './Start.css'
 //import axios from 'axios'
 
@@ -17,11 +16,8 @@ class Start extends Component {
             <div className="App">
             <div className="startHeader">
                 <h1>Memory Game</h1>
-                <Link to={'/memory'}><button>Start!</button></Link>
+                <Link to={'/memory-game/memory'}><button>Start!</button></Link>
             </div>
-            <Switch>
-            <Route path ='/memory' component={MemoryGame}/>
-            </Switch>
             </div>
         )
     }

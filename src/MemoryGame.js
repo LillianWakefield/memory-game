@@ -53,28 +53,38 @@ class MemoryGame extends Component {
     this.state = {
       deck: generateDeck(),
       pickedCards: [],
-      isOn: false,
+      flippedCards: 0,
+      startTimer: false,
+      stopTimer: false,
+      gameOver: false,
     }
 
+  }
+//callback that receives updated state from timer once time is zero
+  timerStopped = (timeZero)=>{
+    this.setState((state) => {
+      return {gameOver: timeZero}
+    });
   }
 
   pickCard(cardIndex){
     var cardToFlip = {...this.state.deck[cardIndex]}
   if(this.state.deck[cardIndex].isFlipped === true){
-    console.log(this.state.isOn)
     return
   }
-  else if(this.state.isOn === false){
+  //stops game when time is zero
+  else if(this.state.gameOver === true){
+    return
+  }
+  //triggers timer to start once a card is picked
+  else if(this.state.startTimer === false){
     cardToFlip.isFlipped = true;
     this.setState((state) => {
-      return {isOn: true}
+      return {startTimer: true}
     });
-    
-
   }
   else
   cardToFlip.isFlipped = true;
-  console.log(this.state.isOn)
 
   var newPickedCards = this.state.pickedCards.concat(cardIndex);
   var newDeck = this.state.deck.map((card,index)=>{
@@ -93,19 +103,20 @@ if (newPickedCards.length === 2){
   if(card1.Symbol !== card2.Symbol){
     setTimeout(()=>{
       this.unflipCards(card1Index, card2Index);
-    },1000 );
-    
+    },1000 ); 
   }
-  else if(card1.Symbol === card2.Symbol){
-  var faceUpCards = [];
-    faceUpCards.push(card1);//add card 1 to face up card array
-    faceUpCards.push(card2);
-    console.log(faceUpCards)
-    if (faceUpCards.length === 18){
-      
+//triggers timer to stop once all cards have been turned
+else if(card1.Symbol === card2.Symbol){
+  this.setState((state) => {
+    return {flippedCards: state.flippedCards + 1}
+  });
+    if (this.state.flippedCards=== 7){
+      this.setState((state) => {
+        return {stopTimer: true}
+      });
     }
   }
-  newPickedCards = [];
+newPickedCards = [];
 }
 
   this.setState({
@@ -151,11 +162,8 @@ this.setState({
             </Column>
             <Column justifyContent='center' alignItems='start' className="Score-sidebar">
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
-                  <div className="Timer-text"><TimerHOC isOn={this.state.isOn}/></div>
+                  <div className="Timer-text"><TimerHOC timerStopped={this.timerStopped} startTimer={this.state.startTimer} stopTimer={this.state.stopTimer}/></div>
                   </Row> 
-                  <Row alignItems='center' className="Personal-best"><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e2b9fc0b6180e526d5e_Crown.png" width="26" alt="medal" className="Personal-best-icon"/>
-                  <div className="Best-time">50s </div>
-                  </Row>
             </Column>
           </Row>
       </div>
