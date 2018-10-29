@@ -138,7 +138,7 @@ this.setState({
         </header>
         </Row>
           <Row justifyContent='center' alignItems='start' className="Play-area">
-            <Column justifyContent='center' alignItems='start' vertical='center' className="Card-area">
+            <Column className="Card-area">
               <Row justifyContent='center' alignItems='center' className="Card-row">
               {cardsJSX.slice(0,6)}
               </Row>

@@ -6,6 +6,7 @@
 
 .App-header {
   height: 80px;
+  margin-left: -100px;
   padding-top: 20px;
   padding-bottom: 100px;
   color: #595959;
@@ -22,16 +23,16 @@
 
 .Play-area {
   max-width: 100%;
-  margin-top: 30px;
-  padding-left: 80px;
 }
 
 .Card-area {
-  width: 50%;
+  display: block;
+  min-width: 800px;
 }
 
 .Card-row {
   width: 100%;
+  height: 180px;
 }
 
 .Symbol {
