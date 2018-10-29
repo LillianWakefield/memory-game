@@ -15,15 +15,15 @@ import pumpkinSVG from './img/pumpkin.svg';
 import spiderSVG from './img/spider.svg';
 
 function generateDeck() {
-  var skull = <img className="Symbol" src ={skullSVG} alt="skull"></img>;
-  var web = <img className="Symbol" src ={webSVG} alt="web"></img>;
-  var brew = <img className="Symbol" src ={brewSVG} alt="brew"></img>;
-  var candycorn = <img className="Symbol" src ={candycornSVG} alt="candycorn"></img>;
-  var ghost = <img className="Symbol" src ={ghostSVG} alt="ghost"></img>;
-  var hat = <img className="Symbol" src ={hatSVG} alt="hat"></img>;
-  var orb = <img className="Symbol" src ={orbSVG} alt="orb"></img>;
-  var pumpkin = <img className="Symbol" src ={pumpkinSVG} alt="pumpkin"></img>;
-  var spider = <img className="Symbol" src ={spiderSVG} alt="spider"></img>;
+  var skull = <img className="Symbol" src ={skullSVG} alt="skull" draggable="false"></img>;
+  var web = <img className="Symbol" src ={webSVG} alt="web" draggable="false"></img>;
+  var brew = <img className="Symbol" src ={brewSVG} alt="brew" draggable="false"></img>;
+  var candycorn = <img className="Symbol" src ={candycornSVG} alt="candycorn" draggable="false"></img>;
+  var ghost = <img className="Symbol" src ={ghostSVG} alt="ghost" draggable="false"></img>;
+  var hat = <img className="Symbol" src ={hatSVG} alt="hat" draggable="false"></img>;
+  var orb = <img className="Symbol" src ={orbSVG} alt="orb" draggable="false"></img>;
+  var pumpkin = <img className="Symbol" src ={pumpkinSVG} alt="pumpkin" draggable="false"></img>;
+  var spider = <img className="Symbol" src ={spiderSVG} alt="spider" draggable="false"></img>;
   var symbols = [skull, web, brew, candycorn, ghost, hat, orb, pumpkin, spider];
   var deck = [];
 
@@ -149,7 +149,7 @@ this.setState({
         </header>
         </Row>
           <Row justifyContent='center' alignItems='start' className="Play-area">
-            <Column justifyContent='center' alignItems='start' vertical='center' className="Card-area">
+            <Column className="Card-area">
               <Row justifyContent='center' alignItems='center' className="Card-row">
               {cardsJSX.slice(0,6)}
               </Row>
