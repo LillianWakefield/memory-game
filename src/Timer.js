@@ -9,7 +9,6 @@ const withTimer = timerProps => WrappedComponent => wrappedComponentProps => (
 );
 
 class ClockUpDown extends React.Component {
-    
     componentDidUpdate(){
         const {setCheckpoints, start, stop, reset} = this.props.timer;
         //triggers timer start when a card is picked
@@ -28,8 +27,7 @@ class ClockUpDown extends React.Component {
         setCheckpoints([
             {
                 time: 0,
-                callback: ()=> this.props.timerStopped(true)
-                
+                callback: ()=> this.props.timerStopped(true),
             },
         ]);
     
@@ -39,7 +37,7 @@ class ClockUpDown extends React.Component {
     render() {
         return (
             <div>
-            <div><Timer.Seconds />s</div>
+            <div><Timer.Seconds/>s</div>
             </div>
         );
     }
