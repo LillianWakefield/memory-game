@@ -71,4 +71,11 @@
   margin-left: 10px;
   line-height: 18px;
 }
+.Restart-button {
+ font-family: 'Londrina Solid', cursive;
+ text-align: left;
+ background: none;
+ border: none;
+ box-shadow: none;
+}
 

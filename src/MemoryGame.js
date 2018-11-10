@@ -57,13 +57,27 @@ class MemoryGame extends Component {
       startTimer: false,
       stopTimer: false,
       gameOver: false,
+      restartTimer: false,
     }
+    this.restartTimer = this.restartTimer.bind(this)
 
   }
 //callback that receives updated state from timer once time is zero
   timerStopped = (timeZero)=>{
     this.setState((state) => {
       return {gameOver: timeZero}
+    });
+  }
+  //restarts game when "Play Again" is clicked
+  restartTimer (){
+    this.setState((state) => {
+      return {
+      deck: generateDeck(),
+      startTimer: false,
+      stopTimer: false,
+      gameOver: false,
+      restartTimer: true
+    }
     });
   }
 
@@ -80,7 +94,8 @@ class MemoryGame extends Component {
   else if(this.state.startTimer === false){
     cardToFlip.isFlipped = true;
     this.setState((state) => {
-      return {startTimer: true}
+      return {startTimer: true,
+      restartTimer:false}
     });
   }
   else
@@ -162,8 +177,11 @@ this.setState({
             </Column>
             <Column justifyContent='center' alignItems='start' className="Score-sidebar">
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
-                  <div className="Timer-text"><TimerHOC timerStopped={this.timerStopped} startTimer={this.state.startTimer} stopTimer={this.state.stopTimer}/></div>
+                  <div className="Timer-text"><TimerHOC timerStopped={this.timerStopped} startTimer={this.state.startTimer} stopTimer={this.state.stopTimer} restartTimer={this.state.restartTimer}/></div>
                   </Row> 
+                  <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
+                  <div><button className="Restart-button" onClick={this.restartTimer}>Play Again</button></div>
+                  </Row>
             </Column>
           </Row>
       </div>
