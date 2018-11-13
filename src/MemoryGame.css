@@ -35,17 +35,11 @@
   height: 180px;
 }
 
-.Symbol {
-  width: 50%;
-  padding-top: 20%;
-}
-
 .Score-sidebar {
     width: 100px;
     margin-top: 40px;
     margin-left: 20px;
 }
-
 .Timer-icon {
   width: 30px;
   margin: -3px;
