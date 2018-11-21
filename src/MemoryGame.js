@@ -13,6 +13,7 @@ import hatSVG from './img/hat.svg';
 import orbSVG from './img/orb.svg';
 import pumpkinSVG from './img/pumpkin.svg';
 import spiderSVG from './img/spider.svg';
+import restartIcon from './img/restart.png'
 
 function generateDeck() {
   var skull = <img className="Symbol" src ={skullSVG} alt="skull" draggable="false"></img>;
@@ -179,7 +180,7 @@ this.setState({
                   <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
                   <div className="Timer-text"><TimerHOC timerStopped={this.timerStopped} startTimer={this.state.startTimer} stopTimer={this.state.stopTimer} restartTimer={this.state.restartTimer}/></div>
                   </Row> 
-                  <Row alignItems='center'><img src="https://uploads-ssl.webflow.com/5bbe3e7c287cc56784173a16/5bbf7e7c4c6f6157e160d383_Clock%202.png" width="30" alt="clock" className="Timer-icon"/>
+                  <Row alignItems='center'><img src={restartIcon} width="30" alt="restart" className="Timer-icon"/>
                   <div><button className="Restart-button" onClick={this.restartTimer}>Play Again</button></div>
                   </Row>
             </Column>

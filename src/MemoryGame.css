@@ -36,13 +36,13 @@
 }
 
 .Score-sidebar {
-    width: 100px;
+    width: 120px;
     margin-top: 40px;
     margin-left: 20px;
 }
 .Timer-icon {
-  width: 30px;
-  margin: -3px;
+  width: 30px
+;margin-top: 3px;
   margin-right: 5px;
 }
 
@@ -71,5 +71,6 @@
  background: none;
  border: none;
  box-shadow: none;
+ font-size: medium;
 }
 

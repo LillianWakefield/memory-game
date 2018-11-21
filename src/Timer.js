@@ -13,7 +13,7 @@ class ClockUpDown extends React.Component {
         const {setCheckpoints, start, stop, reset} = this.props.timer;
         //triggers timer start when a card is picked
         if(this.props.startTimer === true){
-            start();  
+            start();
         }
         //stops timer once all cards are matched
         if(this.props.stopTimer === true){
@@ -49,6 +49,5 @@ const TimerHOC = withTimer({
     startImmediately: false,
     lastUnit: "s"
 })(ClockUpDown);
-
 
 export default TimerHOC;
